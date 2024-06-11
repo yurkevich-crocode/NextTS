@@ -52,14 +52,14 @@ const Cart: React.FC<Cart> = ({ disable }) => {
 
   return (
     <div
-      className={`absolute bg-[white] p-[20px] w-[400px] -right-full ${
+      className={`absolute bg-[white] pt-[20px] p-[10px] w-[400px] -right-full ${
         disable ? "opacity-0 pointer-events-none " : "opacity-100 "
       } transition-opacity  duration-200 ease-in-out [box-shadow:0_0_10px_1px_rgba(184,_184,_184,_0.904)]`}
     >
-      <div className="flex flex-col gap-[10px] pb-[40px] max-h-[500px] overflow-y-auto overflow-x-hidden">
+      <div className="flex flex-col pb-[40px] max-h-[500px] overflow-y-auto overflow-x-hidden">
         {cartItems.length > 0 ? (
           cartItems?.map((item) => (
-            <div className="flex gap-[20px] m-[10px] items-center [box-shadow:0_0_10px_2px_rgba(0,_0,_0,_0.222)] p-[5px] rounded-[10px] relative">
+            <div className="flex gap-[20px] mx-[10px] my-[10px] items-center [box-shadow:0_0_10px_2px_rgba(0,_0,_0,_0.222)] p-[5px] rounded-[10px] relative">
               <div className="min-w-[60px] h-[85px] relative">
                 <img
                   src={item.image}

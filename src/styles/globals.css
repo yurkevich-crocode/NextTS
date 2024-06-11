@@ -44,3 +44,7 @@ header {
   width: 100%;
   z-index: 4;
 }
+
+button:disabled {
+  opacity: 0.5;
+}

@@ -17,7 +17,7 @@ interface CategoryProps {
 export default function CategoryPage({ products, title }: CategoryPage) {
   return (
     <>
-      <HeadWrapper title={title} />
+      <HeadWrapper title={`Категория: ${title}`} />
       <main>
         <Container>
           <div>
@@ -26,7 +26,7 @@ export default function CategoryPage({ products, title }: CategoryPage) {
               <span className="text-[gray]">{title}</span>
             </div>
             <div>
-              <Title text={title} />
+              <Title text={`Категория: ${title}`} />
               <Products page={false} products={products} />
             </div>
           </div>

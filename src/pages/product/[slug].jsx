@@ -8,10 +8,16 @@ import { addCart } from "@/features/cartSlice";
 import { useEffect, useState } from "react";
 
 export default function ProductPage({ product }) {
+  const [disable, setDisable] = useState(false);
   const dispatch = useDispatch();
 
   const addItemCart = (product) => {
     dispatch(addCart(product));
+    setDisable(true);
+
+    setTimeout(() => {
+      setDisable(false);
+    }, 1000);
   };
 
   return (
@@ -43,6 +49,7 @@ export default function ProductPage({ product }) {
                 <Button
                   text={"Добавить в корзину"}
                   onClick={() => addItemCart(product)}
+                  disable={disable}
                 />
               </div>
             </div>

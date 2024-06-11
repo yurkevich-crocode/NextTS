@@ -27,16 +27,16 @@ const Header: React.FC<CateroiesInterface> = ({ categories }) => {
 
   return categories ? (
     <header
-      className={`${inter.className} px-[0] py-[20px] bg-[white] text-[black]`}
+      className={`${inter.className} px-[0] py-[20px] bg-[white] text-[black] [border-bottom:1px_solid_black]`}
     >
       <Container>
         <div className="flex justify-between">
           <div className="flex gap-[10px] items-center">
-            <Link href="/">Main</Link>
+            <Link href="/">Главная</Link>
             <div className="relative group">
               <span className="group-hover:block cursor-pointer">
                 {" "}
-                Categories{" "}
+                Категории
                 <span className="absolute rotate-0 -right-[15px] group-hover:rotate-90 transition-transform duration-200">
                   {">"}
                 </span>
@@ -52,7 +52,7 @@ const Header: React.FC<CateroiesInterface> = ({ categories }) => {
           </div>
           <div className="relative">
             <div className="relative">
-              <Button text={"Cart"} onClick={testFc} />
+              <Button text={"Корзина"} onClick={testFc} />
               <span className="p-[5px] text-[12px] text-[white] absolute -top-[5px] -right-[5px] bg-[red] rounded-full leading-[6px]">
                 {total}
               </span>

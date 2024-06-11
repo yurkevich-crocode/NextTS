@@ -1,6 +1,7 @@
 import HeadWrapper from "@/components/HeadWrapper";
 import Products from "@/components/Products";
 import Banner from "@/components/Banner";
+import Notification from "@/components/Notification";
 
 interface HomeProps {
   products: [];
