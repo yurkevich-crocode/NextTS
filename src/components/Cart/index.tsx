@@ -13,16 +13,23 @@ interface CartItem {
   price: number;
   quantity: number;
   total: number;
+  image: string;
 }
 
 interface StateCart {
-  cart: [];
+  cart: any;
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  total: number;
+  image: string;
 }
 
 const Cart: React.FC<Cart> = ({ disable }) => {
   const dispatch = useDispatch();
   const selector = useSelector((state: StateCart) => state.cart);
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState<StateCart[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
   const setFc = (value: number) => {
@@ -71,7 +78,10 @@ const Cart: React.FC<Cart> = ({ disable }) => {
       <div className="flex flex-col pb-[40px] max-h-[500px] overflow-y-auto overflow-x-hidden">
         {cartItems.length > 0 ? (
           cartItems?.map((item: CartItem) => (
-            <div className="flex gap-[20px] mx-[10px] my-[10px] items-center [box-shadow:0_0_10px_2px_rgba(0,_0,_0,_0.222)] p-[5px] rounded-[10px] relative">
+            <div
+              key={item.id}
+              className="flex gap-[20px] mx-[10px] my-[10px] items-center [box-shadow:0_0_10px_2px_rgba(0,_0,_0,_0.222)] p-[5px] rounded-[10px] relative"
+            >
               <div className="min-w-[60px] h-[85px] relative">
                 <img
                   src={item.image}

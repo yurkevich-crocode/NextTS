@@ -11,9 +11,11 @@ const Categories = ({ categories }: CateroiesInterface) => {
         <Title text="Categories" />
         <div className="grid grid-cols-[repeat(4,_1fr)] gap-[30px]">
           {categories.map((category) => (
-            <Link href={`/product/${category}`}>
-              <span>{category}</span>
-            </Link>
+            <div key={category}>
+              <Link href={`/product/${category}`}>
+                <span>{category}</span>
+              </Link>
+            </div>
           ))}
         </div>
       </Container>
