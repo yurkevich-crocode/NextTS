@@ -11,6 +11,7 @@ import { PersistGate } from "redux-persist/integration/react";
 import Loading from "@/components/Loading";
 import { persistStore } from "redux-persist";
 import { Router } from "next/router";
+import HeadWrapper from "@/components/HeadWrapper";
 
 export default function App({ Component, pageProps }: AppProps) {
   let persistor = persistStore(store);
@@ -34,6 +35,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Provider store={store}>
       <PersistGate loading={<Loading />} persistor={persistor}>
+        <HeadWrapper title={"NextJs+TypeScript"} />
         {loading ? (
           <Loading />
         ) : (

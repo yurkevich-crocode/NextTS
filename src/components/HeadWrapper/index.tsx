@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 interface HeadInterface {
-  title: string | null;
+  title?: string | null;
 }
 
 const HeadWrapper: React.FC<HeadInterface> = ({ title }) => {
