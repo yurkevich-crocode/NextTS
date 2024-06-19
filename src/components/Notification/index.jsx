@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Notification = () => {
   const [show, setShow] = useState(false);
   const notification = useSelector((state) => state.cart.notification);
+  const notificationText = useSelector((state) => state.cart.notificationText);
   const dispatch = useDispatch();
 
   function getRandomColor() {
@@ -35,7 +36,7 @@ const Notification = () => {
         show ? "opacity-100" : "opacity-0"
       }`}
     >
-      <h1>Вы добавили товар в корзину</h1>
+      <h1>{notificationText}</h1>
     </div>
   );
 };

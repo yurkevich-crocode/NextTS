@@ -2,7 +2,7 @@ interface ButtonInterface {
   text: string;
   variation?: string;
   onClick?: () => void;
-  disable: boolean;
+  disable?: boolean;
 }
 
 const Button: React.FC<ButtonInterface> = ({

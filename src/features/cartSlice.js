@@ -6,6 +6,7 @@ export const cartSlice = createSlice({
     cart: [],
     cartTotal: 0,
     notification: false,
+    notificationText: "",
   },
   reducers: {
     addCart: (state, action) => {
@@ -18,12 +19,15 @@ export const cartSlice = createSlice({
         state.cart.push({ ...action.payload, quantity: 1 });
       }
       state.notification = true;
+      state.notificationText = "Товар успешно добавлен в корзину";
     },
     removeCart: (state, action) => {
       const removeItem = state.cart.filter(
         (item) => item.id !== action.payload
       );
       state.cart = removeItem;
+      state.notification = true;
+      state.notificationText = "Товар успешно удален из корзины";
     },
     resetCart: (state) => {
       state.cart.length = 0;

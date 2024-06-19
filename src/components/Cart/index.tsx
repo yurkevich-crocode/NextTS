@@ -7,13 +7,25 @@ interface Cart {
   disable: boolean;
 }
 
+interface CartItem {
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  total: number;
+}
+
+interface StateCart {
+  cart: [];
+}
+
 const Cart: React.FC<Cart> = ({ disable }) => {
   const dispatch = useDispatch();
-  const selector = useSelector((state) => state.cart);
+  const selector = useSelector((state: StateCart) => state.cart);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const setFc = (value) => {
+  const setFc = (value: number) => {
     dispatch(setCount(value));
   };
 
@@ -31,13 +43,13 @@ const Cart: React.FC<Cart> = ({ disable }) => {
 
   useEffect(() => {
     if (cartItems.length > 0) {
-      const total = cartItems.reduce((acc, el) => {
+      const total = cartItems.reduce((acc, el: CartItem) => {
         return acc + +el.price * el.quantity;
       }, 0);
-      const totalC = cartItems.reduce((accTotal, elTotal) => {
+      const totalC = cartItems.reduce((accTotal, elTotal: CartItem) => {
         return accTotal + elTotal.quantity;
       }, 0);
-      setTotalPrice(total.toFixed(2));
+      setTotalPrice(+total.toFixed(2));
 
       setFc(totalC);
     } else {
@@ -46,7 +58,7 @@ const Cart: React.FC<Cart> = ({ disable }) => {
     }
   }, [cartItems]);
 
-  const deleteItemCart = (product) => {
+  const deleteItemCart = (product: CartItem) => {
     dispatch(removeCart(product.id));
   };
 
@@ -58,7 +70,7 @@ const Cart: React.FC<Cart> = ({ disable }) => {
     >
       <div className="flex flex-col pb-[40px] max-h-[500px] overflow-y-auto overflow-x-hidden">
         {cartItems.length > 0 ? (
-          cartItems?.map((item) => (
+          cartItems?.map((item: CartItem) => (
             <div className="flex gap-[20px] mx-[10px] my-[10px] items-center [box-shadow:0_0_10px_2px_rgba(0,_0,_0,_0.222)] p-[5px] rounded-[10px] relative">
               <div className="min-w-[60px] h-[85px] relative">
                 <img
