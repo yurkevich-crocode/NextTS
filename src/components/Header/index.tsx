@@ -11,6 +11,12 @@ import { useSelector } from "react-redux";
 
 const inter = Inter({ subsets: ["latin"] });
 
+interface CartTotal {
+  cart: {
+    cartTotal: number;
+  };
+}
+
 const Header: React.FC<CateroiesInterface> = ({ categories }) => {
   const [total, setTotal] = useState(0);
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -19,7 +25,7 @@ const Header: React.FC<CateroiesInterface> = ({ categories }) => {
     setIsOpenCart((prev) => !prev);
   };
 
-  const selector = useSelector((state) => state.cart.cartTotal);
+  const selector = useSelector((state: CartTotal) => state.cart.cartTotal);
 
   useEffect(() => {
     setTotal(selector);

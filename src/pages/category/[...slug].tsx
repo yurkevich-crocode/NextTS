@@ -6,6 +6,7 @@ import Products from "@/components/Products";
 
 interface CategoryPage {
   title: string;
+  products: any;
 }
 
 interface CategoryProps {

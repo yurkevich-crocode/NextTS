@@ -23,7 +23,7 @@ const Products: React.FC<ProductsInterface> = ({ products, page }) => {
   const [disable, setDisable] = useState(false);
   const dispatch = useDispatch();
 
-  const addToCart = (product) => {
+  const addToCart = (product: {}) => {
     dispatch(addCart(product));
     setDisable(true);
 
