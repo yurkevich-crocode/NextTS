@@ -34,8 +34,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <Provider store={store}>
+      <HeadWrapper title={"NextJs"} />
+
       <PersistGate loading={<Loading />} persistor={persistor}>
-        <HeadWrapper title={"NextJs+TypeScript"} />
         {loading ? (
           <Loading />
         ) : (
